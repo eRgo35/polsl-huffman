@@ -5,20 +5,19 @@ using namespace std;
 int main() {
   cout << "Hello, world!" << endl << "Please provide how long the loop should work:";
 
-  int a = 0;
-  int b = 1;
+  unsigned long int a = 0;
+  unsigned long int b = 1;
 
-  int t;
+  unsigned long long int c, t;
   cin >> t;
 
   cout << a << endl << b << endl;
 
   for (int i = 0; i < t; i++) {
-    b = a + b;
+    c = a + b;
     a = b;
-    // 0 1 1 2 3 
-
-    cout << a << endl;
+    b = c;
+    cout << c << endl;
   }
 
   return 0;
