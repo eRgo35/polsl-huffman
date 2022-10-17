@@ -4,49 +4,53 @@ using namespace std;
 
 int main()
 {
-  int g = 5;
+  int g = 4;
   char tn;
 
-  while (true)
+  cout << "Czy twoja liczba jest mniejsza lub równa " << g << "? ";
+  cin >> tn;
+
+  if (tn == 't')
   {
-    cout << "Czy twoja liczba jest mniejsza od " << g << "? ";
-
-    cin >> tn;
-
-    if (tn == 'n')
-    {
-      if (g == 7)
-      {
-        g += 1;
-        continue;
-      }
-      if (g == 8)
-      {
-        cout << "Twoja liczba to 8" << endl;
-        break;
-      }
-      g += 2;
-      continue;
-    }
-    else if (tn == 't')
-    {
-      if (g == 3)
-      {
-        g -= 1;
-        continue;
-      }
-      if (g == 2)
-      {
-        cout << "Twoja liczba to 1" << endl;
-        break;
-      }
-      g -= 2;
-      continue;
-    }
-    else
-    {
-      continue;
-    }
+    // przedział zmniejsza się do 1-4
+    g -= 2;
   }
+
+  if (tn == 'n')
+  {
+    // przedział zmniejsza się do 5-8
+    g += 2;
+  }
+
+  cout << "Czy twoja liczba jest mniejsza lub równa " << g << "? ";
+  cin >> tn;
+
+  if (tn == 't')
+  {
+    // przedział zmniejsza się do 1-2 lub 5-6
+    g--;
+  }
+
+  if (tn == 'n')
+  {
+    // przedział zmniejsza się do 3-4 lub 7-8
+    g++;
+  }
+
+  cout << "Czy twoja liczba jest mniejsza lub równa " << g << "? ";
+  cin >> tn;
+
+  if (tn == 't')
+  {
+
+  }
+
+  if (tn == 'n')
+  {
+    g++;
+  }
+
+  cout << "Twoja liczba to: " << g << endl;
+
   return 0;
 }
