@@ -176,7 +176,7 @@ void zad3_gra()
   int liczba = distrib(gen);
 
   std::cout << "Zgadnij liczbe z przedzialu [1,100]" << std::endl;
-  
+
   int proby = 0;
   int strzal;
 
@@ -230,13 +230,13 @@ void zad4_gra()
   int liczba = distrib(gen);
 
   std::cout << "Zgadnę liczbe z przedzialu [" << min << ", " << max << "]" << std::endl;
-  
+
   int proby = 0;
   int strzal;
   char tn;
   int i = max;
 
-  while(true)
+  while (true)
   {
     if (proby > 10)
     {
@@ -255,14 +255,14 @@ void zad4_gra()
 
     if (tn == 't')
     {
-      i *= i/2;
+      i *= i / 2;
     }
 
     if (tn == 'n')
     {
-      i /= i/2;
+      i /= i / 2;
     }
-    
+
     proby++;
   }
 
@@ -271,12 +271,34 @@ void zad4_gra()
 
 void zad5_zbior()
 {
-  int liczby[1337] { };
-  for (int i = 0; i < 1337; i++)
+  int liczby[1337]{};
+  int i = 0;
+  double avg;
+  int sum = 0;
+  int min = 0;
+  int max = 0;
+  int diff = 0;
+
+  std::cout << "Podaj liczby (użyj Ctrl-D aby zakończyć wprowadzanie): ";
+  while (std::cin >> liczby[i])
+    i++;
+
+  for (int j = 0; j < i; j++)
+    sum += liczby[j];
+  avg = (double)sum / i;
+
+  min = liczby[0];
+  for (int j = 0; j < i; j++)
   {
-    while(std::cin >> liczby[i]) {
-    std::cout << "Podaj liczbę: ";
-    std::cin >> liczby[i];
+    if (liczby[j + 1] < min)
+    {
+      min = liczby[j + 1];
     }
   }
+
+  std::cout << "Ilość liczb: " << i << std::endl;
+  std::cout << "Średnia: " << avg << std::endl;
+  std::cout << "Minimalna: " << min << std::endl; //todo
+  std::cout << "Maksymalna: " << max << std::endl; //todo
+  std::cout << "Odchylenie: " << diff << std::endl; //todo
 }
