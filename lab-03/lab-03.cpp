@@ -17,8 +17,8 @@ int main()
   //  zad1_potega();
   // zad2_prime();
   // zad3_gra();
-  // zad4_gra();
-  zad5_zbior();
+  zad4_gra();
+  // zad5_zbior();
 
   return 0;
 }
@@ -215,57 +215,45 @@ void zad3_gra()
 
 void zad4_gra()
 {
-  // source: https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution
-  std::random_device rd;  // Will be used to obtain a seed for the random number engine
-  std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-
   int min = 1;
   int max = 100;
 
-  std::cout << "Podaj przedział (domyślnie 1-100): ";
-  std::cin >> min, max;
-
-  std::uniform_int_distribution<> distrib(min, max);
-
-  int liczba = distrib(gen);
+  std::cout << "Podaj minimalną liczbę z przedziału (domyślnie 1): ";
+  std::cin >> min;
+  std::cout << "Podaj maksymalną liczbę z przedziału (domyślnie 100): ";
+  std::cin >> max;
 
   std::cout << "Zgadnę liczbe z przedzialu [" << min << ", " << max << "]" << std::endl;
 
-  int proby = 0;
-  int strzal;
   char tn;
-  int i = max;
+  int liczba;
+  int max_l = max;
+  int min_l = min;
 
   while (true)
   {
-    if (proby > 10)
-    {
-      std::cout << "Niestety nie trafiłem w 10 próbach" << std::endl;
-      return;
-    }
-
-    if (i == liczba)
-    {
-      std::cout << "Twoja liczba to: " << i << std::endl;
-      return;
-    }
-
-    std::cout << "Czy twoja liczba jest większa od " << sqrt(i) << "? ";
+    liczba = (max_l + min_l) / 2;
+    std::cout << "Czy twoja liczba jest większa od " << liczba << " (t/n)? ";
     std::cin >> tn;
 
     if (tn == 't')
     {
-      i *= i / 2;
+      min_l = liczba;
     }
 
     if (tn == 'n')
     {
-      i /= i / 2;
+      max_l = liczba;
     }
 
-    proby++;
-  }
+    if (max_l - min_l < 2)
+    {
+      std::cout << "Twoja liczba to " << liczba << std::endl;
+      return;
+    }
 
+    // std::cout << std::endl << "Stack: " << min_l << " " << max_l << " " << liczba << std::endl;
+  }
   return;
 }
 
@@ -273,11 +261,8 @@ void zad5_zbior()
 {
   int liczby[1337]{};
   int i = 0;
-  double avg;
+  double avg = 0;
   int sum = 0;
-  int min = 0;
-  int max = 0;
-  int diff = 0;
 
   std::cout << "Podaj liczby (użyj Ctrl-D aby zakończyć wprowadzanie): ";
   while (std::cin >> liczby[i])
@@ -287,18 +272,24 @@ void zad5_zbior()
     sum += liczby[j];
   avg = (double)sum / i;
 
-  min = liczby[0];
+  int min = liczby[0];
+  int max = liczby[0];
+  double sigma_sum = 0;
+
   for (int j = 0; j < i; j++)
   {
-    if (liczby[j + 1] < min)
-    {
-      min = liczby[j + 1];
-    }
+    if (min > liczby[j])
+      min = liczby[j];
+    if (max < liczby[j])
+      max = liczby[j];
+    sigma_sum += pow((liczby[j] - avg), 2);
   }
+
+  double diff = sqrt(sigma_sum / i);
 
   std::cout << "Ilość liczb: " << i << std::endl;
   std::cout << "Średnia: " << avg << std::endl;
-  std::cout << "Minimalna: " << min << std::endl; //todo
-  std::cout << "Maksymalna: " << max << std::endl; //todo
-  std::cout << "Odchylenie: " << diff << std::endl; //todo
+  std::cout << "Minimalna: " << min << std::endl;
+  std::cout << "Maksymalna: " << max << std::endl;
+  std::cout << "Odchylenie: " << diff << std::endl;
 }
