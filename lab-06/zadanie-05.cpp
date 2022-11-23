@@ -93,6 +93,84 @@ Point center_between_two_points(Point a, Point b)
   return point;
 }
 
+double area_of_a_square(Square square)
+{
+  double side = distance_between_two_points(square.point1, square.point2);
+  return side * side;
+}
+
+Square bigger_square(Square square1, Square square2)
+{
+  if (area_of_a_square(square1) > area_of_a_square(square2))
+    return square1;
+  return square2;
+}
+
+double area_of_a_circle(Circle circle)
+{
+  return 3.1415 * circle.length * circle.length;
+}
+
+char *mutual_position_of_two_circles(Circle circle1, Circle circle2)
+{
+  if (distance_between_two_points(circle1.point, circle2.point) == 0)
+    return "współśrodkowe";
+
+  if (distance_between_two_points(circle1.point, circle2.point) == fabs(circle1.length - circle2.length))
+    return "styczne wewnętrznie";
+
+  if (distance_between_two_points(circle1.point, circle2.point) == circle1.length + circle2.length)
+    return "styczne zewnętznie";
+
+  if (distance_between_two_points(circle1.point, circle2.point) < fabs(circle1.length - circle2.length))
+    return "rozłączne wewnętrznie";
+
+  if (distance_between_two_points(circle1.point, circle2.point) > circle1.length + circle2.length)
+    return "rozłączne zewnętrznie";
+  
+  return "przecinające się";
+}
+
+void add_time(Time &time1, Time &time2)
+{
+  if ((time1.seconds += time2.seconds) >= 60)
+  {
+    time1.seconds %= 60;
+    time1.minutes++;
+  }
+
+  if ((time1.minutes += time2.minutes) >= 60)
+  {
+    time1.minutes %= 60;
+    time1.hours++;
+  }
+
+  if ((time1.hours += time2.hours) >= 24)
+  {
+    time1.hours %= 24;
+  }
+}
+
+void sub_time(int &h, int &m, int &s, int hrs, int min, int sec)
+{
+  if ((s -= sec) < 0)
+  {
+    s %= 60;
+    m--;
+  }
+
+  if ((m += min) < 0)
+  {
+    m %= 60;
+    h--;
+  }
+
+  if ((h += hrs) < 0)
+  {
+    h %= 24;
+  }
+}
+
 int main()
 {
   std::vector<Point> points = generate_points_vector(1000);
@@ -113,16 +191,59 @@ int main()
   // for (Circle circle : circles)
   // printf("[(%f, %f), %f]\n", circle.point.x, circle.point.y, circle.length);
 
-  double distance = distance_between_two_points(points[(int) generate_random_number()], points[(int) generate_random_number()]);
-  
+  double distance = distance_between_two_points(points[(int)generate_random_number()], points[(int)generate_random_number()]);
+
   // check if distance is calculated properly
   // printf("d = %f\n", distance);
 
-  Point center = center_between_two_points(points[(int) generate_random_number()], points[(int) generate_random_number()]);
+  Point center = center_between_two_points(points[(int)generate_random_number()], points[(int)generate_random_number()]);
 
   // check if center is calculated properly
   // printf("(%f, %f)\n", center.x, center.y);
 
-  
+  double area = area_of_a_square(squares[(int)generate_random_number()]);
+
+  // check if area is calculated properly
+  // printf("area = %f\n", area);
+
+  Square square1 = squares[(int)generate_random_number()];
+  Square square2 = squares[(int)generate_random_number()];
+  Square bigger = bigger_square(square1, square2);
+
+  // check if square size is calculated properly
+  // printf("bigger = %f | square1 = %f | square2 = %f\n", area_of_a_square(bigger), area_of_a_square(square1), area_of_a_square(square2));
+
+  double carea = area_of_a_circle(circles[(int)generate_random_number()]);
+
+  // check if area is calculated properly
+  // printf("area = %f\n", carea);
+
+  enum circle_position
+  {
+
+  };
+
+  Circle circle1 = circles[(int)generate_random_number()];
+  Circle circle2 = circles[(int)generate_random_number()];
+  char *type = mutual_position_of_two_circles(circle1, circle2);
+  // check if position is calculated properly
+  printf("type = %s | circle1 = (%f, %f), %f | circle2 = (%f, %f), %f\n", type, circle1.point.x, circle1.point.y, circle1.length, circle2.point.x, circle2.point.y, circle2.length);
+
+  std::cout << "------------------------------------------------" << std::endl;
+
+  Time time1;
+  time1.hours = 23;
+  time1.minutes = 59;
+  time1.seconds = 59;
+
+  Time time2;
+  time2.hours = 0;
+  time2.minutes = 0;
+  time2.seconds = 2;
+ 
+  add_time(time1, time2);
+
+  printf("%i: %i: %i\n", time1.hours, time1.minutes, time1.seconds);
+
   return 0;
 }
