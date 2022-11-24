@@ -46,6 +46,9 @@ bool arguments_handler(int argc, char *argv[], std::string &input, std::string &
   {
     std::string args = std::string(argv[i]);
 
+    if (i + 1 >= argc)
+      continue;
+
     if (args == "-i")
       in = !check_arg(input, argv[i + 1]) ? error_handler(argv[0], error_messages["input"]) : true;
 
@@ -63,7 +66,15 @@ bool arguments_handler(int argc, char *argv[], std::string &input, std::string &
   }
 
   // check if params exist
-  // in = !check_arg(input, input) ? error_handler(argv[0], error_messages["input"]) : true;
+  in = !check_arg(input, input) ? error_handler(argv[0], error_messages["input"]) : true;
+  out = !check_arg(output, output) ? error_handler(argv[0], error_messages["output"]) : true;
+  md = !check_arg(mode, mode) ? error_handler(argv[0], error_messages["mode"]) : true;
+  dc = !check_arg(dictionary, dictionary) ? error_handler(argv[0], error_messages["dictionary"]) : true;
+
+  //TODO implement error info buffer
+
+  if (!(in && out && md && dc))
+    return false;
 
   return true;
 }
