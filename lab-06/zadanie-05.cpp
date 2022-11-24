@@ -127,7 +127,7 @@ char *mutual_position_of_two_circles(Circle circle1, Circle circle2)
 
   if (distance_between_two_points(circle1.point, circle2.point) > circle1.length + circle2.length)
     return "rozłączne zewnętrznie";
-  
+
   return "przecinające się";
 }
 
@@ -151,23 +151,23 @@ void add_time(Time &time1, Time &time2)
   }
 }
 
-void sub_time(int &h, int &m, int &s, int hrs, int min, int sec)
+void sub_time(Time &time1, Time &time2)
 {
-  if ((s -= sec) < 0)
+  if ((time1.seconds -= time2.seconds) < 0)
   {
-    s %= 60;
-    m--;
+    time1.seconds += 60;
+    time1.minutes--;
   }
 
-  if ((m += min) < 0)
+  if ((time1.minutes -= time2.minutes) < 0)
   {
-    m %= 60;
-    h--;
+    time1.minutes += 60;
+    time1.hours--;
   }
 
-  if ((h += hrs) < 0)
+  if ((time1.hours += time2.hours) < 0)
   {
-    h %= 24;
+    time1.hours += 24;
   }
 }
 
@@ -240,10 +240,19 @@ int main()
   time2.hours = 0;
   time2.minutes = 0;
   time2.seconds = 2;
- 
+
+  Time time3;
+  time3.hours = 0;
+  time3.minutes = 0;
+  time3.seconds = 1;
+
   add_time(time1, time2);
 
-  printf("%i: %i: %i\n", time1.hours, time1.minutes, time1.seconds);
+  printf("%i:%i:%i\n", time1.hours, time1.minutes, time1.seconds);
+
+  sub_time(time3, time2);
+
+  printf("%i:%i:%i\n", time3.hours, time3.minutes, time3.seconds);
 
   return 0;
 }
