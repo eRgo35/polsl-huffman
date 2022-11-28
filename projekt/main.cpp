@@ -9,13 +9,14 @@ int main(int argc, char **argv)
   std::string input, output, mode, dictionary;
   std::string data;
 
-  // argument read check
+  // argument check
   if (!arguments_handler(argc, argv, input, output, mode, dictionary))
     return 0;
 
   // read file from arguments
-  if (!read_file(data, input))
+  if (!read_file(argv[0], data, input))
     return 0;
 
+  
   return 0;
 }

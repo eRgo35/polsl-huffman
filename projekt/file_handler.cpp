@@ -2,27 +2,19 @@
 #include <sys/stat.h>
 
 #include "file_handler.h"
+#include "error_handler.h"
 
-bool err() {
-  std::cout << "error";
-  return false;
-}
-
-bool read_file(std::string &data, std::string &file_name)
+bool read_file(std::string program_name, std::string &data, std::string &file_name)
 {
-  try
+  std::ifstream file(file_name);
+  std::string line;
+  
+  if (!file.good())
   {
-    std::ifstream file(file_name);
-    if (!file.good())
-      return err();
-    while(file >> data)
-      std::cout << data;
+    return error_handler(program_name, "Input file is invalid");
   }
-  catch (const std::exception &e)
-  {
-    std::cerr << e.what() << '\n';
-    return false;
-  }
+
+  while(std::getline(file, line));
 
   return true;
 }
