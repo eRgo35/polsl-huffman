@@ -12,5 +12,9 @@ int main()
 
   youngest_oldest("osoby.txt");
 
+  copy_text("osoby.txt", "copy.txt");
+
+  copy_binary("osoby.txt", "copy.bin");
+  
   return 0;
 }

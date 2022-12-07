@@ -101,17 +101,55 @@ void youngest_oldest(const std::string &file_name)
 
   while (file >> name >> age)
     people.push_back({name, age});
-  
-  
 
-  std::cout << "youngest: "
-            << "oldest: ";
+  person young = people[0];
+  person old = people[0];
+  for (int i = 1; i < people.size(); i++)
+  {
+    if (young.age > people[i].age)
+      young = people[i];
+
+    if (old.age < people[i].age)
+      old = people[i];
+  }
+
+  std::cout << "Youngest: " << young.name << ": " << young.age << std::endl
+            << "Oldest: " << old.name << ": " << old.age << std::endl;
 }
 
 void copy_text(const std::string &input_file_name, const std::string &output_file_name)
 {
+  std::ifstream input(input_file_name);
+  std::ofstream output(output_file_name);
+
+  if (!input || !output)
+  {
+    std::cerr << "Wystąpił błąd przy odczycie lub zapisie z pliku";
+    exit(0);
+  }
+
+  std::string line;
+
+  while (getline(input, line))
+  {
+    output << line << std::endl;
+  }
 }
 
 void copy_binary(const std::string &input_file_name, const std::string &output_file_name)
 {
+  std::ifstream input(input_file_name, std::ifstream::binary);
+  std::ofstream output(output_file_name);
+
+  if (!input || !output)
+  {
+    std::cerr << "Wystąpił błąd przy odczycie lub zapisie z pliku";
+    exit(0);
+  }
+
+  std::string i;
+
+  while (input >> i);
+
+  output.write((char *)&i, sizeof(int));
 }
