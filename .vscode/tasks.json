@@ -34,7 +34,7 @@
         "-g",
         // "${fileDirname}/${fileBasenameNoExtension}.cpp",
         "${fileDirname}/**.cpp",
-        //"${fileDirname}/**.h",
+        // "${fileDirname}/**.h",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}.dev",
       ],
