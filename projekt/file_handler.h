@@ -4,6 +4,6 @@
 #include <iostream>
 #include <fstream>
 
-bool read_file(std::string &data, std::string &file);
+bool read_file(std::string program_name, std::string &data, std::string &file_name);
 
 #endif

@@ -35,7 +35,7 @@
     // "args": [],
     // "args": ["--help"],
     // "args": ["-i", "pantadeusz.txt", "-o", "file.enc", "-t", "k"],
-    // "args": ["-i", "file.txt", "-o", "file.enc", "-t", "k", "-s", "file.dic"],
+    "args": ["-i", "file.txt", "-o", "file.enc", "-t", "k", "-s", "file.dic"],
     // "args": ["-i", "file.enc", "-o", "file.txt", "-t", "d", "-s", "file.dic"],
     // "args": ["-i", "-o", "file.txt", "-t", "d", "-s"],
     // "args": ["--help", "-a", "hello", "-b", "world"],
