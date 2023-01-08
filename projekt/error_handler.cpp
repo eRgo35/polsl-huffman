@@ -8,7 +8,7 @@ bool error_handler(std::string name, std::string message = "")
             << std::endl;
   std::cout << message;
   std::cout << std::endl
-            << "Usage: " << name << " -i <input_file> -o <output_file> -t <mode> -s [dictionary_file]" << std::endl;
+            << "Usage: " << name << " -i <input_file> -o <output_file> -t <mode> -s <dictionary_file>" << std::endl;
   std::cout << std::endl
             << "Available parameters:" << std::endl
             << "-i <input_file> - path to the input file" << std::endl

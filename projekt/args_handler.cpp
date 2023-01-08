@@ -55,7 +55,7 @@ bool arguments_handler(int argc, char *argv[], std::string &input, std::string &
   in = !check_arg(input, input) ? error_handler(argv[0], error_messages["input"]) : true;
   out = !check_arg(output, output) ? error_handler(argv[0], error_messages["output"]) : true;
   md = !check_arg(mode, mode) ? error_handler(argv[0], error_messages["mode"]) : true;
-  // dc = !check_arg(dictionary, dictionary) ? error_handler(argv[0], error_messages["dictionary"]) : true;
+  dc = !check_arg(dictionary, dictionary) ? error_handler(argv[0], error_messages["dictionary"]) : true;
 
   // TODO implement error info buffer
 

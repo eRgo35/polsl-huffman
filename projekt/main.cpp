@@ -18,5 +18,21 @@ int main(int argc, char **argv)
   if (!read_file(name, data, input))
     return 0;
 
+  // encryption/decryption
+  bool status = false;
+  
+  if (mode == "k")
+    status = encrypt(input, output, dictionary);  
+  else if (mode == "d")
+    status = decrypt(input, output, dictionary);
+  else
+    return 0;
+  
+  // results
+  if (status)
+    std::cout << "Operation completed successfully!" << std::endl;
+  else
+   std::cout << "Error encountered" << std::endl;
+
   return 0;
 }
