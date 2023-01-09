@@ -2,6 +2,7 @@
 
 #include "args_handler.h"
 #include "file_handler.h"
+#include "crypto.h"
 
 int main(int argc, char **argv)
 {
