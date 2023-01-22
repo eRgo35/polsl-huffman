@@ -2,6 +2,8 @@
 #include <map>
 #include <sstream>
 #include <sys/stat.h>
+#include <algorithm>
+#include <vector>
 
 #include "file_handler.h"
 #include "error_handler.h"

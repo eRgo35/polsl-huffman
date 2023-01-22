@@ -2,7 +2,7 @@
 
 #include "args_handler.h"
 #include "file_handler.h"
-#include "crypto.h"
+#include "packer.h"
 
 int main(int argc, char **argv)
 {
@@ -19,13 +19,16 @@ int main(int argc, char **argv)
   if (!read_file(name, data, input))
     return 0;
 
+  if (!build_tree(input))
+    return 0;
+
   // encryption/decryption
   bool status = false;
   
   if (mode == "k")
-    status = encrypt(input, output, dictionary);  
+    status = compress(input, output, dictionary);  
   else if (mode == "d")
-    status = decrypt(input, output, dictionary);
+    status = decompress(input, output, dictionary);
   else
     return 0;
   
