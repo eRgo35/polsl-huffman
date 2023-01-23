@@ -2,13 +2,13 @@
 
 #include "error_handler.h"
 
-bool error_handler(std::string name, std::string message = "")
+bool error_handler(std::string program_name, std::string message = "")
 {
-  std::cout << "Huffman compression/decompression tool 1.0.0 : Copyright (c) 2022 Michał Czyż" << std::endl
+  std::cout << "Huffman tool 1.0.0 : Michał Czyż" << std::endl
             << std::endl;
   std::cout << message;
   std::cout << std::endl
-            << "Usage: " << name << " -i <input_file> -o <output_file> -t <mode> -s <dictionary_file>" << std::endl;
+            << "Usage: " << program_name << " -i <input_file> -o <output_file> -t <mode> -s <dictionary_file>" << std::endl;
   std::cout << std::endl
             << "Available parameters:" << std::endl
             << "-i <input_file> - path to the input file" << std::endl

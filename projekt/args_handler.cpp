@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <vector>
 
 #include "args_handler.h"
 #include "error_handler.h"
@@ -19,6 +20,12 @@ bool check_arg(std::string &value, std::string arg)
 
   value = arg;
   return true;
+}
+
+bool push_into_error_buffer(std::vector<std::string> &target, std::string &error)
+{
+  target.push_back(error);
+  return false;
 }
 
 bool arguments_handler(int argc, char *argv[], std::string &input, std::string &output, std::string &mode, std::string &dictionary)
@@ -51,16 +58,26 @@ bool arguments_handler(int argc, char *argv[], std::string &input, std::string &
       return false;
   }
 
-  // check if params exist
-  in = !check_arg(input, input) ? error_handler(argv[0], error_messages["input"]) : true;
-  out = !check_arg(output, output) ? error_handler(argv[0], error_messages["output"]) : true;
-  md = !check_arg(mode, mode) ? error_handler(argv[0], error_messages["mode"]) : true;
-  dc = !check_arg(dictionary, dictionary) ? error_handler(argv[0], error_messages["dictionary"]) : true;
+  std::vector<std::string> all_messages;
 
-  // TODO implement error info buffer
+  // check if params exist
+  in = !check_arg(input, input) ? push_into_error_buffer(all_messages, error_messages["input"]) : true;
+  out = !check_arg(output, output) ? push_into_error_buffer(all_messages, error_messages["output"]) : true;
+  md = !check_arg(mode, mode) ? push_into_error_buffer(all_messages, error_messages["mode"]) : true;
+  dc = !check_arg(dictionary, dictionary) ? push_into_error_buffer(all_messages, error_messages["dictionary"]) : true;
+
+  std::string all_messages_str;
+
+  for (auto msg : all_messages)
+  {
+    all_messages_str += msg;
+  }
 
   if (!(in && out && md))
+  {
+    error_handler(argv[0], all_messages_str);
     return false;
+  }
 
   return true;
 }
