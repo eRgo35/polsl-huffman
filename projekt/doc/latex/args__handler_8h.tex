@@ -1,0 +1,69 @@
+\hypertarget{args__handler_8h}{}\doxysection{args\+\_\+handler.\+h File Reference}
+\label{args__handler_8h}\index{args\_handler.h@{args\_handler.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{args__handler_8h_a036291e4c0866c96a1c5c82b9f354bfc}{check\+\_\+arg}} (std\+::string \&value, std\+::string arg)
+\begin{DoxyCompactList}\small\item\em Function checks if the specified argument exists and is valid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{args__handler_8h_a0ce0148467a94642383660a6c992a681}\label{args__handler_8h_a0ce0148467a94642383660a6c992a681}} 
+bool {\bfseries push\+\_\+into\+\_\+error\+\_\+buffer} (std\+::vector$<$ std\+::string $>$ \&target, std\+::string \&error)
+\item 
+bool \mbox{\hyperlink{args__handler_8h_abcb1035a3d1006de2a946bd64def646f}{arguments\+\_\+handler}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, std\+::string \&input, std\+::string \&output, std\+::string \&mode, std\+::string \&dictionary)
+\begin{DoxyCompactList}\small\item\em Function handles all incoming arguments from argv array and sets all necessary options and paths into input, output, mode and dictionary variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{args__handler_8h_abcb1035a3d1006de2a946bd64def646f}\label{args__handler_8h_abcb1035a3d1006de2a946bd64def646f}} 
+\index{args\_handler.h@{args\_handler.h}!arguments\_handler@{arguments\_handler}}
+\index{arguments\_handler@{arguments\_handler}!args\_handler.h@{args\_handler.h}}
+\doxysubsubsection{\texorpdfstring{arguments\_handler()}{arguments\_handler()}}
+{\footnotesize\ttfamily bool arguments\+\_\+handler (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{std\+::string \&}]{input,  }\item[{std\+::string \&}]{output,  }\item[{std\+::string \&}]{mode,  }\item[{std\+::string \&}]{dictionary }\end{DoxyParamCaption})}
+
+
+
+Function handles all incoming arguments from argv array and sets all necessary options and paths into input, output, mode and dictionary variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+{\em input} & \\
+\hline
+{\em output} & \\
+\hline
+{\em mode} & \\
+\hline
+{\em dictionary} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{args__handler_8h_a036291e4c0866c96a1c5c82b9f354bfc}\label{args__handler_8h_a036291e4c0866c96a1c5c82b9f354bfc}} 
+\index{args\_handler.h@{args\_handler.h}!check\_arg@{check\_arg}}
+\index{check\_arg@{check\_arg}!args\_handler.h@{args\_handler.h}}
+\doxysubsubsection{\texorpdfstring{check\_arg()}{check\_arg()}}
+{\footnotesize\ttfamily bool check\+\_\+arg (\begin{DoxyParamCaption}\item[{std\+::string \&}]{value,  }\item[{std\+::string}]{arg }\end{DoxyParamCaption})}
+
+
+
+Function checks if the specified argument exists and is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+{\em arg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+~\newline
+ 
+\end{DoxyReturn}

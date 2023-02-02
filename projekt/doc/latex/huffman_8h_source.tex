@@ -1,0 +1,36 @@
+\hypertarget{huffman_8h_source}{}\doxysection{huffman.\+h}
+\mbox{\hyperlink{huffman_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{comment}{/*\ huffman.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ HUFFMAN\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ HUFFMAN\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structhuffman__node}{huffman\_node}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{char}\ symbol;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ frequency;}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *left,\ *right;}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{huffman_8h_a727b5b5077d1d19cf455cbbb8856f0ca}{is\_leaf}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_aaf1005ac1b06a9ff34376e788b536f20}{compress}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node,\ std::string\ data,\ std::map<char,\ std::string>\ \&frequency);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_ac52d102bf29a5f8149b8242df0c59cd8}{decompress}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node,\ std::string\ \&result);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \mbox{\hyperlink{structhuffman__node}{huffman\_node}}*\ \mbox{\hyperlink{huffman_8h_abbdcbac56863d6962dc40c9e9f112f0f}{create\_tree}}(std::map<char,\ int>\ \&frequency);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ huffman\_node*\ rebuild\_tree(std::string\ \&dictionary);}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_afd8012c4168235bafffd1f3f3a8be535}{clear\_tree}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

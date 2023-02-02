@@ -1,16 +1,24 @@
 \hypertarget{args__handler_8h_source}{}\doxysection{args\+\_\+handler.\+h}
-
+\mbox{\hyperlink{args__handler_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ARGS\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ARGS\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00011\ \textcolor{keywordtype}{bool}\ check\_arg(std::string\ \&value,\ std::string\ arg);}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{comment}{/*\ args\_handler.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ ARGS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ARGS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{bool}\ arguments\_handler(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[],\ std::string\ \&input,\ std::string\ \&output,\ std::string\ \&mode,\ std::string\ \&dictionary);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{args__handler_8h_a036291e4c0866c96a1c5c82b9f354bfc}{check\_arg}}(std::string\ \&value,\ std::string\ arg);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{bool}\ push\_into\_error\_buffer(std::vector<std::string>\ \&target,\ std::string\ \&error);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{args__handler_8h_abcb1035a3d1006de2a946bd64def646f}{arguments\_handler}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[],\ std::string\ \&input,\ std::string\ \&output,\ std::string\ \&mode,\ std::string\ \&dictionary);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
