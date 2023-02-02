@@ -1,3 +1,7 @@
+/** @file */
+/* huffman.h
+ */
+
 #ifndef HUFFMAN_H
 #define HUFFMAN_H
 
@@ -22,16 +26,24 @@ bool is_leaf(huffman_node *node);
 /// @param tree 
 /// @param data 
 /// @param result 
-void compress(huffman_node *tree, std::string &data, std::map<char, std::string> &result);
+void compress(huffman_node *node, std::string data, std::map<char, std::string> &frequency);
 
 /// @brief Decompresses contents of a provided huffman_node into an original string.
 /// @param tree 
 /// @param i 
 /// @param res 
-void decompress(huffman_node *tree, std::string &result);
+void decompress(huffman_node *node, std::string &result);
 
 /// @brief Generates a huffman tree structure.
 /// @param data 
-void create_tree(std::string &data);
+/// @return
+huffman_node* create_tree(std::map<char, int> &frequency);
+
+/// @brief Rebuilds huffman tree structure from a file
+/// @param data 
+/// @return 
+// huffman_node* rebuild_tree(std::string &dictionary);
+
+void clear_tree(huffman_node *node);
 
 #endif

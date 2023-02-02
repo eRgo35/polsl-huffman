@@ -1,3 +1,7 @@
+/** @file */
+/* error_handler.h
+ */
+
 #ifndef ERROR_H
 #define ERROR_H
 

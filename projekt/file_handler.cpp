@@ -23,7 +23,26 @@ bool read_file(std::string program_name, std::string &data, std::string &file_na
   return true;
 }
 
-bool write_file(std::string program_name, std::string &data, std::string &file_name)
-{
+bool write_file(std::string program_name, std::string &data, std::string &file_name, bool binary)
+{  
+  if (binary)
+  {
+    std::ofstream file(file_name, std::ios::binary);
+
+    if (!file.good())
+      return error_handler(program_name, "Output file is invalid");
+
+    file.write((char *)data.c_str(), sizeof(std::string));
+
+    return true;
+  }
+
+  std::ofstream file(file_name);
+
+  if (!file.good())
+    return error_handler(program_name, "Output file is invalid");
+
+  file << data;
+
   return true;
 }

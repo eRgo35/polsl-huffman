@@ -1,3 +1,7 @@
+/** @file */
+/* file_handler.h
+ */
+
 #ifndef FILE_HANDLER
 #define FILE_HANDLER
 
@@ -16,6 +20,6 @@ bool read_file(std::string program_name, std::string &data, std::string &file_na
 /// @param data 
 /// @param file_name 
 /// @return 
-bool write_file(std::string program_name, std::string &data, std::string &file_name);
+bool write_file(std::string program_name, std::string &data, std::string &file_name, bool binary);
 
 #endif
