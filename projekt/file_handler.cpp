@@ -32,7 +32,7 @@ bool write_file(std::string program_name, std::string &data, std::string &file_n
     if (!file.good())
       return error_handler(program_name, "Output file is invalid");
 
-    file.write((char *)data.c_str(), sizeof(std::string));
+    file.write(data.c_str(), data.size());
 
     return true;
   }

@@ -51,7 +51,7 @@ bool arguments_handler(int argc, char *argv[], std::string &input, std::string &
     if (args == "-t")
       md = !check_arg(mode, argv[i + 1]) ? error_handler(argv[0], error_messages["mode"]) : true;
 
-    if (md && args == "-s")
+    if (args == "-s")
       dc = !check_arg(dictionary, argv[i + 1]) ? error_handler(argv[0], error_messages["dictionary"]) : true;
 
     if (!(in || out || md))
