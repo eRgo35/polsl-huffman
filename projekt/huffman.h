@@ -32,7 +32,7 @@ void compress(huffman_node *node, std::string data, std::map<char, std::string> 
 /// @param tree 
 /// @param i 
 /// @param res 
-void decompress(huffman_node *node, std::string &result);
+void decompress(std::map<std::string, char> &frequency, std::string &data, std::string &result);
 
 /// @brief Generates a huffman tree structure.
 /// @param data 
@@ -42,8 +42,10 @@ huffman_node* create_tree(std::map<char, int> &frequency);
 /// @brief Rebuilds huffman tree structure from a file
 /// @param data 
 /// @return 
-// huffman_node* rebuild_tree(std::string &dictionary);
+std::map<std::string, char> rebuild_tree(std::string &dictionary);
 
 void clear_tree(huffman_node *node);
+
+char unescape_char(std::string character);
 
 #endif

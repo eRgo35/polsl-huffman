@@ -13,7 +13,7 @@
 /// @param data 
 /// @param file_name 
 /// @return 
-bool read_file(std::string program_name, std::string &data, std::string &file_name);
+bool read_file(std::string program_name, std::string &data, std::string &file_name, bool binary);
 
 /// @brief Function opens a file, writes results into it.
 /// @param program_name 

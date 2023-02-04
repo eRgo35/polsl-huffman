@@ -64,6 +64,7 @@
     "chrono": "cpp",
     "optional": "cpp",
     "iomanip": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "bitset": "cpp"
   }
 }

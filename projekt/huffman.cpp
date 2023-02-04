@@ -1,6 +1,9 @@
 #include <iostream>
 #include <queue>
 #include <map>
+#include <sstream>
+#include <vector>
+#include <string>
 
 #include "huffman.h"
 
@@ -11,13 +14,13 @@ auto lowest_frequency = [](huffman_node *left, huffman_node *right)
 
 bool is_leaf(huffman_node *node)
 {
+  if (node->left == nullptr && node->right == nullptr)
+    return true;
   return false;
 }
 
 void compress(huffman_node *node, std::string data, std::map<char, std::string> &frequency)
 { 
-  std::string binary_number;
-  
   // check if node exists
   if (node == nullptr)
     return;
@@ -25,16 +28,25 @@ void compress(huffman_node *node, std::string data, std::map<char, std::string> 
   // check if node is the last element (leaf) in a tree
   if (is_leaf(node))
   {
-    
-    frequency[node->symbol] = binary_number;
+    frequency[node->symbol] = (data != "") ? data : "1";
   }
 
   compress(node->left, data + "0", frequency);
   compress(node->right, data + "1", frequency);
 }
 
-void decompress(huffman_node *tree, std::string &result)
+void decompress(std::map<std::string, char> &frequency, std::string &data, std::string &result)
 {
+  std::string code;
+  for (char c : data)
+  {
+    code += c;
+    if (frequency.count(code) > 0)
+    {
+      result += frequency[code];
+      code = "";
+    }
+  }
 }
 
 huffman_node* create_tree(std::map<char, int> &frequency)
@@ -77,12 +89,26 @@ huffman_node* create_tree(std::map<char, int> &frequency)
   return queue.top();
 }
 
-// huffman_node* rebuild_tree(std::string &dictionary)
-// {
-  
+std::map<std::string, char> rebuild_tree(std::string &dictionary)
+{
+  std::map<std::string, char> dictionary_map;
+  std::stringstream dictionary_stream(dictionary);
+  std::string ch;
+  std::string code; 
 
+  while (true)
+  {
+    std::getline(dictionary_stream, ch);
+    if(!std::getline(dictionary_stream, code))
+      break;
 
-// }
+    char c = unescape_char(ch);
+
+    dictionary_map[code] = c;
+  }
+
+  return dictionary_map;
+}
 
 
 void clear_tree(huffman_node *node)
@@ -97,4 +123,11 @@ void clear_tree(huffman_node *node)
 
   // remove node from the heap
   delete node;
+}
+
+char unescape_char(std::string character)
+{
+  if (character == "'\\n'")
+    return '\n';
+  return character.c_str()[0];
 }
