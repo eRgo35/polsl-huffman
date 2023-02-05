@@ -1,0 +1,125 @@
+\hypertarget{args__handler_8cpp}{}\doxysection{args\+\_\+handler.\+cpp File Reference}
+\label{args__handler_8cpp}\index{args\_handler.cpp@{args\_handler.cpp}}
+
+
+Implements functions defined in \mbox{\hyperlink{args__handler_8h}{args\+\_\+handler.\+h}}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}args\+\_\+handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}error\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{args__handler_8cpp_a036291e4c0866c96a1c5c82b9f354bfc}{check\+\_\+arg}} (std\+::string \&value, std\+::string arg)
+\begin{DoxyCompactList}\small\item\em Checks if parameters exist. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{args__handler_8cpp_a0ce0148467a94642383660a6c992a681}{push\+\_\+into\+\_\+error\+\_\+buffer}} (std\+::vector$<$ std\+::string $>$ \&target, std\+::string \&error)
+\begin{DoxyCompactList}\small\item\em Pushes errors into an error buffer so if more errors occure in one go the program will list them line-\/by-\/line. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{args__handler_8cpp_abcb1035a3d1006de2a946bd64def646f}{arguments\+\_\+handler}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, std\+::string \&input, std\+::string \&output, std\+::string \&mode, std\+::string \&dictionary)
+\begin{DoxyCompactList}\small\item\em Handles the arguments passed to the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{args__handler_8cpp_a6f23496f68c52f4f37c0cc8c58e16ce0}{error\+\_\+messages}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements functions defined in \mbox{\hyperlink{args__handler_8h}{args\+\_\+handler.\+h}}. 
+
+\begin{DoxyAuthor}{Author}
+Michał Czyż 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{args__handler_8cpp_abcb1035a3d1006de2a946bd64def646f}\label{args__handler_8cpp_abcb1035a3d1006de2a946bd64def646f}} 
+\index{args\_handler.cpp@{args\_handler.cpp}!arguments\_handler@{arguments\_handler}}
+\index{arguments\_handler@{arguments\_handler}!args\_handler.cpp@{args\_handler.cpp}}
+\doxysubsubsection{\texorpdfstring{arguments\_handler()}{arguments\_handler()}}
+{\footnotesize\ttfamily bool arguments\+\_\+handler (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{std\+::string \&}]{input,  }\item[{std\+::string \&}]{output,  }\item[{std\+::string \&}]{mode,  }\item[{std\+::string \&}]{dictionary }\end{DoxyParamCaption})}
+
+
+
+Handles the arguments passed to the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of arguments passed to the program. \\
+\hline
+{\em argv} & An array of pointers to the arguments passed to the program. \\
+\hline
+{\em input} & A reference to a string that will contain the file name of the input. \\
+\hline
+{\em output} & A reference to a string that will contain the file name of the output. \\
+\hline
+{\em mode} & A reference to a string that will contain program mode (compression/decompression). \\
+\hline
+{\em dictionary} & A reference to a string that will contain the file name of the dictionary file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Will return true if the arguemtns were successfully handled. Otherwise, it will return false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{args__handler_8cpp_a036291e4c0866c96a1c5c82b9f354bfc}\label{args__handler_8cpp_a036291e4c0866c96a1c5c82b9f354bfc}} 
+\index{args\_handler.cpp@{args\_handler.cpp}!check\_arg@{check\_arg}}
+\index{check\_arg@{check\_arg}!args\_handler.cpp@{args\_handler.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_arg()}{check\_arg()}}
+{\footnotesize\ttfamily bool check\+\_\+arg (\begin{DoxyParamCaption}\item[{std\+::string \&}]{value,  }\item[{std\+::string}]{arg }\end{DoxyParamCaption})}
+
+
+
+Checks if parameters exist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value of an arguement. \\
+\hline
+{\em arg} & Passed argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if there is a problem i.\+e. arg is empty or there is no dash. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{args__handler_8cpp_a0ce0148467a94642383660a6c992a681}\label{args__handler_8cpp_a0ce0148467a94642383660a6c992a681}} 
+\index{args\_handler.cpp@{args\_handler.cpp}!push\_into\_error\_buffer@{push\_into\_error\_buffer}}
+\index{push\_into\_error\_buffer@{push\_into\_error\_buffer}!args\_handler.cpp@{args\_handler.cpp}}
+\doxysubsubsection{\texorpdfstring{push\_into\_error\_buffer()}{push\_into\_error\_buffer()}}
+{\footnotesize\ttfamily bool push\+\_\+into\+\_\+error\+\_\+buffer (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{target,  }\item[{std\+::string \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Pushes errors into an error buffer so if more errors occure in one go the program will list them line-\/by-\/line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & A reference to the target vector of string holding all errors. \\
+\hline
+{\em error} & A reference to a string holding an error message. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Will always return false to signal that an error occured. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{args__handler_8cpp_a6f23496f68c52f4f37c0cc8c58e16ce0}\label{args__handler_8cpp_a6f23496f68c52f4f37c0cc8c58e16ce0}} 
+\index{args\_handler.cpp@{args\_handler.cpp}!error\_messages@{error\_messages}}
+\index{error\_messages@{error\_messages}!args\_handler.cpp@{args\_handler.cpp}}
+\doxysubsubsection{\texorpdfstring{error\_messages}{error\_messages}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::string$>$ error\+\_\+messages}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}not\_enough"{}},\ \textcolor{stringliteral}{"{}Too\ few\ arguments.\(\backslash\)n"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}input"{}},\ \textcolor{stringliteral}{"{}-\/i\ argument\ requires\ <input\_file>\ path.\(\backslash\)n"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}output"{}},\ \textcolor{stringliteral}{"{}-\/o\ argument\ requires\ <output\_file>\ path.\(\backslash\)n"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}mode"{}},\ \textcolor{stringliteral}{"{}-\/t\ argument\ requires\ <mode>;\ k\ <-\/\ compression,\ d\ <-\/\ decompression.\(\backslash\)n"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}dictionary"{}},\ \textcolor{stringliteral}{"{}-\/s\ argument\ requires\ <dictionary\_file>\ path.\(\backslash\)n"{}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

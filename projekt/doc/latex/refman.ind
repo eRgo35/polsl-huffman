@@ -1,0 +1,138 @@
+\begin{theindex}
+
+  \item {args\_handler.cpp}, \hyperpage{9}
+    \subitem {arguments\_handler}, \hyperpage{10}
+    \subitem {check\_arg}, \hyperpage{10}
+    \subitem {error\_messages}, \hyperpage{11}
+    \subitem {push\_into\_error\_buffer}, \hyperpage{10}
+  \item {args\_handler.h}, \hyperpage{11}
+    \subitem {arguments\_handler}, \hyperpage{12}
+    \subitem {check\_arg}, \hyperpage{12}
+    \subitem {push\_into\_error\_buffer}, \hyperpage{13}
+  \item {arguments\_handler}
+    \subitem {args\_handler.cpp}, \hyperpage{10}
+    \subitem {args\_handler.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {check\_arg}
+    \subitem {args\_handler.cpp}, \hyperpage{10}
+    \subitem {args\_handler.h}, \hyperpage{12}
+  \item {clear\_tree}
+    \subitem {huffman.cpp}, \hyperpage{20}
+    \subitem {huffman.h}, \hyperpage{24}
+  \item {compress}
+    \subitem {huffman.cpp}, \hyperpage{20}
+    \subitem {huffman.h}, \hyperpage{24}
+  \item {create\_tree}
+    \subitem {huffman.cpp}, \hyperpage{20}
+    \subitem {huffman.h}, \hyperpage{24}
+
+  \indexspace
+
+  \item {decompress}
+    \subitem {huffman.cpp}, \hyperpage{21}
+    \subitem {huffman.h}, \hyperpage{25}
+
+  \indexspace
+
+  \item {error\_handler}
+    \subitem {error\_handler.cpp}, \hyperpage{14}
+    \subitem {error\_handler.h}, \hyperpage{15}
+  \item {error\_handler.cpp}, \hyperpage{13}
+    \subitem {error\_handler}, \hyperpage{14}
+  \item {error\_handler.h}, \hyperpage{14}
+    \subitem {error\_handler}, \hyperpage{15}
+  \item {error\_messages}
+    \subitem {args\_handler.cpp}, \hyperpage{11}
+  \item {escape\_char}
+    \subitem {huffman.cpp}, \hyperpage{21}
+    \subitem {huffman.h}, \hyperpage{25}
+
+  \indexspace
+
+  \item {file\_handler.cpp}, \hyperpage{15}
+    \subitem {read\_file}, \hyperpage{16}
+    \subitem {write\_file}, \hyperpage{16}
+  \item {file\_handler.h}, \hyperpage{17}
+    \subitem {read\_file}, \hyperpage{17}
+    \subitem {write\_file}, \hyperpage{18}
+  \item {frequency}
+    \subitem {huffman\_node}, \hyperpage{7}
+
+  \indexspace
+
+  \item {huffman.cpp}, \hyperpage{19}
+    \subitem {clear\_tree}, \hyperpage{20}
+    \subitem {compress}, \hyperpage{20}
+    \subitem {create\_tree}, \hyperpage{20}
+    \subitem {decompress}, \hyperpage{21}
+    \subitem {escape\_char}, \hyperpage{21}
+    \subitem {is\_leaf}, \hyperpage{21}
+    \subitem {lowest\_frequency}, \hyperpage{22}
+    \subitem {rebuild\_tree}, \hyperpage{22}
+    \subitem {unescape\_char}, \hyperpage{22}
+  \item {huffman.h}, \hyperpage{23}
+    \subitem {clear\_tree}, \hyperpage{24}
+    \subitem {compress}, \hyperpage{24}
+    \subitem {create\_tree}, \hyperpage{24}
+    \subitem {decompress}, \hyperpage{25}
+    \subitem {escape\_char}, \hyperpage{25}
+    \subitem {is\_leaf}, \hyperpage{25}
+    \subitem {rebuild\_tree}, \hyperpage{26}
+    \subitem {unescape\_char}, \hyperpage{26}
+  \item {huffman\_node}, \hyperpage{7}
+    \subitem {frequency}, \hyperpage{7}
+    \subitem {right}, \hyperpage{7}
+    \subitem {symbol}, \hyperpage{7}
+
+  \indexspace
+
+  \item {is\_leaf}
+    \subitem {huffman.cpp}, \hyperpage{21}
+    \subitem {huffman.h}, \hyperpage{25}
+
+  \indexspace
+
+  \item {lowest\_frequency}
+    \subitem {huffman.cpp}, \hyperpage{22}
+
+  \indexspace
+
+  \item {main.cpp}, \hyperpage{27}
+
+  \indexspace
+
+  \item {push\_into\_error\_buffer}
+    \subitem {args\_handler.cpp}, \hyperpage{10}
+    \subitem {args\_handler.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {read\_file}
+    \subitem {file\_handler.cpp}, \hyperpage{16}
+    \subitem {file\_handler.h}, \hyperpage{17}
+  \item {rebuild\_tree}
+    \subitem {huffman.cpp}, \hyperpage{22}
+    \subitem {huffman.h}, \hyperpage{26}
+  \item {right}
+    \subitem {huffman\_node}, \hyperpage{7}
+
+  \indexspace
+
+  \item {symbol}
+    \subitem {huffman\_node}, \hyperpage{7}
+
+  \indexspace
+
+  \item {unescape\_char}
+    \subitem {huffman.cpp}, \hyperpage{22}
+    \subitem {huffman.h}, \hyperpage{26}
+
+  \indexspace
+
+  \item {write\_file}
+    \subitem {file\_handler.cpp}, \hyperpage{16}
+    \subitem {file\_handler.h}, \hyperpage{18}
+
+\end{theindex}

@@ -74,6 +74,9 @@ $(function() {
   <div class="headertitle"><div class="title">error_handler.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Simple header that holds the general error handler for the program.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="error__handler_8h_source.html">Go to the source code of this file.</a></p>
@@ -81,10 +84,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa17320685b5884eebf46e0234595bbfa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error__handler_8h.html#aa17320685b5884eebf46e0234595bbfa">error_handler</a> (std::string program_name, std::string message)</td></tr>
-<tr class="memdesc:aa17320685b5884eebf46e0234595bbfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function handles error and quick help outputs.  <br /></td></tr>
+<tr class="memdesc:aa17320685b5884eebf46e0234595bbfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an error output in the console and help, with an instruction of how to use a program.  <br /></td></tr>
 <tr class="separator:aa17320685b5884eebf46e0234595bbfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Simple header that holds the general error handler for the program. </p>
+<dl class="section author"><dt>Author</dt><dd>Michał Czyż </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa17320685b5884eebf46e0234595bbfa" name="aa17320685b5884eebf46e0234595bbfa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa17320685b5884eebf46e0234595bbfa">&#9670;&#160;</a></span>error_handler()</h2>
 
@@ -111,16 +117,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function handles error and quick help outputs. </p>
+<p>Generates an error output in the console and help, with an instruction of how to use a program. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">program_name</td><td></td></tr>
-    <tr><td class="paramname">message</td><td></td></tr>
+    <tr><td class="paramname">program_name</td><td>A string that holds a name of a program to printout. </td></tr>
+    <tr><td class="paramname">message</td><td>A string containing an error message to printout. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Always returns false. </dd></dl>
 
 </div>
 </div>

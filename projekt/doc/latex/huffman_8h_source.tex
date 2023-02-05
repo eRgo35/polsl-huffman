@@ -2,35 +2,36 @@
 \mbox{\hyperlink{huffman_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00002\ \textcolor{comment}{/*\ huffman.h}}
-\DoxyCodeLine{00003\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ HUFFMAN\_H}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ HUFFMAN\_H}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structhuffman__node}{huffman\_node}}}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{char}\ symbol;}
-\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ frequency;}
-\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *left,\ *right;}
-\DoxyCodeLine{00018\ \};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{huffman_8h_a727b5b5077d1d19cf455cbbb8856f0ca}{is\_leaf}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node);}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ HUFFMAN\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ HUFFMAN\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structhuffman__node}{huffman\_node}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structhuffman__node_a3d02c1015f825a6678418aaf4e1ca9b1}{symbol}};\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structhuffman__node_ad855dabb46357eec6f3ff0a15a069fa2}{frequency}};\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *left,\ *\mbox{\hyperlink{structhuffman__node_aee102738688d5a78fa6b1778abd3fca7}{right}};\ }
+\DoxyCodeLine{00023\ \};}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_aaf1005ac1b06a9ff34376e788b536f20}{compress}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node,\ std::string\ data,\ std::map<char,\ std::string>\ \&frequency);}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_ac52d102bf29a5f8149b8242df0c59cd8}{decompress}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node,\ std::string\ \&result);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00040\ \mbox{\hyperlink{structhuffman__node}{huffman\_node}}*\ \mbox{\hyperlink{huffman_8h_abbdcbac56863d6962dc40c9e9f112f0f}{create\_tree}}(std::map<char,\ int>\ \&frequency);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{huffman_8h_a727b5b5077d1d19cf455cbbb8856f0ca}{is\_leaf}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_aaf1005ac1b06a9ff34376e788b536f20}{compress}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node,\ std::string\ data,\ std::map<char,\ std::string>\ \&frequency);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_a9535bcb3c4a88d8db36e8f3c951ea6f0}{decompress}}(std::map<std::string,\ char>\ \&frequency,\ std::string\ \&data,\ std::string\ \&result);}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00045\ \textcolor{comment}{//\ huffman\_node*\ rebuild\_tree(std::string\ \&dictionary);}}
+\DoxyCodeLine{00045\ \mbox{\hyperlink{structhuffman__node}{huffman\_node}}*\ \mbox{\hyperlink{huffman_8h_abbdcbac56863d6962dc40c9e9f112f0f}{create\_tree}}(std::map<char,\ int>\ \&frequency);}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_afd8012c4168235bafffd1f3f3a8be535}{clear\_tree}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00050\ std::map<std::string,\ char>\ \mbox{\hyperlink{huffman_8h_a0070a5b180bff5881abe4c818e02bbdc}{rebuild\_tree}}(std::string\ \&dictionary);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{huffman_8h_afd8012c4168235bafffd1f3f3a8be535}{clear\_tree}}(\mbox{\hyperlink{structhuffman__node}{huffman\_node}}\ *node);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ std::string\ \mbox{\hyperlink{huffman_8h_a0d69a045da94f38df53b96ff00eb4b3b}{escape\_char}}(\textcolor{keywordtype}{char}\ character);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{huffman_8h_a3cb77ebb814822df524737ff8e40a83a}{unescape\_char}}(std::string\ character);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

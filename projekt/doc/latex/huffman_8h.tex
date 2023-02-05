@@ -1,5 +1,10 @@
 \hypertarget{huffman_8h}{}\doxysection{huffman.\+h File Reference}
 \label{huffman_8h}\index{huffman.h@{huffman.h}}
+
+
+Defines core functions of the program.  
+
+
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
@@ -7,20 +12,34 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}}
-\begin{DoxyCompactList}\small\item\em Huffman node structure. It holds information about the letter, its frequency and the left and right child. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em huffman node structure used later to create a tree of frequencies. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{huffman_8h_a727b5b5077d1d19cf455cbbb8856f0ca}{is\+\_\+leaf}} (\mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$node)
-\begin{DoxyCompactList}\small\item\em check if the provided \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} is a leaf\+: the node has no more children. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the provided node has no children. It it the leaf of a tree. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{huffman_8h_aaf1005ac1b06a9ff34376e788b536f20}{compress}} (\mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$node, std\+::string data, std\+::map$<$ char, std\+::string $>$ \&frequency)
-\begin{DoxyCompactList}\small\item\em Compress contents of a provided \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} into a string of ones and zeroes. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{huffman_8h_ac52d102bf29a5f8149b8242df0c59cd8}{decompress}} (\mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$node, std\+::string \&result)
-\begin{DoxyCompactList}\small\item\em Decompresses contents of a provided \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} into an original string. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compresses data recursively to a binary stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{huffman_8h_a9535bcb3c4a88d8db36e8f3c951ea6f0}{decompress}} (std\+::map$<$ std\+::string, char $>$ \&frequency, std\+::string \&data, std\+::string \&result)
+\begin{DoxyCompactList}\small\item\em Decompresses binary stream back to the normal format. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$ \mbox{\hyperlink{huffman_8h_abbdcbac56863d6962dc40c9e9f112f0f}{create\+\_\+tree}} (std\+::map$<$ char, int $>$ \&frequency)
-\begin{DoxyCompactList}\small\item\em Generates a huffman tree structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a huffman binary tree out of a map of frequencies. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, char $>$ \mbox{\hyperlink{huffman_8h_a0070a5b180bff5881abe4c818e02bbdc}{rebuild\+\_\+tree}} (std\+::string \&dictionary)
+\begin{DoxyCompactList}\small\item\em Rebuilds an inverted (easier to process later) frequency map from a string. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{huffman_8h_afd8012c4168235bafffd1f3f3a8be535}{clear\+\_\+tree}} (\mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$node)
-\begin{DoxyCompactList}\small\item\em Rebuilds huffman tree structure from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clears a heap of a huffman tree so the program doesn\textquotesingle{}t leak any data. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{huffman_8h_a0d69a045da94f38df53b96ff00eb4b3b}{escape\+\_\+char}} (char character)
+\begin{DoxyCompactList}\small\item\em Escapes difficult character that might break something later. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{huffman_8h_a3cb77ebb814822df524737ff8e40a83a}{unescape\+\_\+char}} (std\+::string character)
+\begin{DoxyCompactList}\small\item\em Unescapes characters and prints them in a normal form. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines core functions of the program. 
+
+\begin{DoxyAuthor}{Author}
+Michał Czyż 
+\end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
@@ -32,17 +51,13 @@ void \mbox{\hyperlink{huffman_8h_afd8012c4168235bafffd1f3f3a8be535}{clear\+\_\+t
 
 
 
-Rebuilds huffman tree structure from a file. 
+Clears a heap of a huffman tree so the program doesn\textquotesingle{}t leak any data. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em data} & \\
+{\em node} & A pointer to a node that has to be cleared. By default it should be the entire tree. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-~\newline
- 
-\end{DoxyReturn}
 \mbox{\Hypertarget{huffman_8h_aaf1005ac1b06a9ff34376e788b536f20}\label{huffman_8h_aaf1005ac1b06a9ff34376e788b536f20}} 
 \index{huffman.h@{huffman.h}!compress@{compress}}
 \index{compress@{compress}!huffman.h@{huffman.h}}
@@ -51,16 +66,15 @@ Rebuilds huffman tree structure from a file.
 
 
 
-Compress contents of a provided \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} into a string of ones and zeroes. 
+Compresses data recursively to a binary stream. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em tree} & \\
+{\em node} & A pointer to the huffman tree root. \\
 \hline
-{\em data} & \\
+{\em data} & A string of data to be compressed. \\
 \hline
-{\em result} & ~\newline
- \\
+{\em frequency} & A reference to a frequency map. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{huffman_8h_abbdcbac56863d6962dc40c9e9f112f0f}\label{huffman_8h_abbdcbac56863d6962dc40c9e9f112f0f}} 
@@ -71,36 +85,53 @@ Compress contents of a provided \mbox{\hyperlink{structhuffman__node}{huffman\+\
 
 
 
-Generates a huffman tree structure. 
+Creates a huffman binary tree out of a map of frequencies. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em data} & \\
+{\em frequency} & A reference to a map of frequencies. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Returns a pointer to a huffman binary tree. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{huffman_8h_ac52d102bf29a5f8149b8242df0c59cd8}\label{huffman_8h_ac52d102bf29a5f8149b8242df0c59cd8}} 
+\mbox{\Hypertarget{huffman_8h_a9535bcb3c4a88d8db36e8f3c951ea6f0}\label{huffman_8h_a9535bcb3c4a88d8db36e8f3c951ea6f0}} 
 \index{huffman.h@{huffman.h}!decompress@{decompress}}
 \index{decompress@{decompress}!huffman.h@{huffman.h}}
 \doxysubsubsection{\texorpdfstring{decompress()}{decompress()}}
-{\footnotesize\ttfamily void decompress (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$}]{node,  }\item[{std\+::string \&}]{result }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void decompress (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, char $>$ \&}]{frequency,  }\item[{std\+::string \&}]{data,  }\item[{std\+::string \&}]{result }\end{DoxyParamCaption})}
 
 
 
-Decompresses contents of a provided \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} into an original string. 
+Decompresses binary stream back to the normal format. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em tree} & \\
+{\em frequency} & A reference to an inverted frequency map. \\
 \hline
-{\em i} & \\
+{\em data} & A reference to the string of encoded data. \\
 \hline
-{\em res} & ~\newline
- \\
+{\em result} & A reference to the string that will contain decomressed data. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{huffman_8h_a0d69a045da94f38df53b96ff00eb4b3b}\label{huffman_8h_a0d69a045da94f38df53b96ff00eb4b3b}} 
+\index{huffman.h@{huffman.h}!escape\_char@{escape\_char}}
+\index{escape\_char@{escape\_char}!huffman.h@{huffman.h}}
+\doxysubsubsection{\texorpdfstring{escape\_char()}{escape\_char()}}
+{\footnotesize\ttfamily std\+::string escape\+\_\+char (\begin{DoxyParamCaption}\item[{char}]{character }\end{DoxyParamCaption})}
+
+
+
+Escapes difficult character that might break something later. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & A char that holds a normal character to escape i.\+e \textquotesingle{}\textbackslash{}n\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an escaped version of a character. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{huffman_8h_a727b5b5077d1d19cf455cbbb8856f0ca}\label{huffman_8h_a727b5b5077d1d19cf455cbbb8856f0ca}} 
 \index{huffman.h@{huffman.h}!is\_leaf@{is\_leaf}}
 \index{is\_leaf@{is\_leaf}!huffman.h@{huffman.h}}
@@ -109,14 +140,49 @@ Decompresses contents of a provided \mbox{\hyperlink{structhuffman__node}{huffma
 
 
 
-check if the provided \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} is a leaf\+: the node has no more children. 
+Checks if the provided node has no children. It it the leaf of a tree. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em node} & \\
+{\em node} & A pointer to the node that has to be checked. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-~\newline
- 
+Returns true if the node is a leaf node. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{huffman_8h_a0070a5b180bff5881abe4c818e02bbdc}\label{huffman_8h_a0070a5b180bff5881abe4c818e02bbdc}} 
+\index{huffman.h@{huffman.h}!rebuild\_tree@{rebuild\_tree}}
+\index{rebuild\_tree@{rebuild\_tree}!huffman.h@{huffman.h}}
+\doxysubsubsection{\texorpdfstring{rebuild\_tree()}{rebuild\_tree()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, char $>$ rebuild\+\_\+tree (\begin{DoxyParamCaption}\item[{std\+::string \&}]{dictionary }\end{DoxyParamCaption})}
+
+
+
+Rebuilds an inverted (easier to process later) frequency map from a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dictionary} & A reference to a string that holds a map. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an inverted frequency map. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{huffman_8h_a3cb77ebb814822df524737ff8e40a83a}\label{huffman_8h_a3cb77ebb814822df524737ff8e40a83a}} 
+\index{huffman.h@{huffman.h}!unescape\_char@{unescape\_char}}
+\index{unescape\_char@{unescape\_char}!huffman.h@{huffman.h}}
+\doxysubsubsection{\texorpdfstring{unescape\_char()}{unescape\_char()}}
+{\footnotesize\ttfamily char unescape\+\_\+char (\begin{DoxyParamCaption}\item[{std\+::string}]{character }\end{DoxyParamCaption})}
+
+
+
+Unescapes characters and prints them in a normal form. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & A string holding an encoded character to escape i.\+e \textquotesingle{}\textbackslash{}n\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a raw, unescaped character. 
 \end{DoxyReturn}

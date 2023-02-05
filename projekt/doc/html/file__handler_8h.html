@@ -74,6 +74,9 @@ $(function() {
   <div class="headertitle"><div class="title">file_handler.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines functions for interaction with the filesystem.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 </div>
@@ -81,16 +84,19 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a354f5e3cefb18e20e7f7b2fa9e3f0aa6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__handler_8h.html#a354f5e3cefb18e20e7f7b2fa9e3f0aa6">read_file</a> (std::string program_name, std::string &amp;data, std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a354f5e3cefb18e20e7f7b2fa9e3f0aa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function opens a file, reads its contents and stores it inside data variable.  <br /></td></tr>
-<tr class="separator:a354f5e3cefb18e20e7f7b2fa9e3f0aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a501289bb6edfb58b0dbd86f2ad461054"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__handler_8h.html#a501289bb6edfb58b0dbd86f2ad461054">read_file</a> (std::string program_name, std::string &amp;data, std::string &amp;file_name, bool binary)</td></tr>
+<tr class="memdesc:a501289bb6edfb58b0dbd86f2ad461054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the provided file.  <br /></td></tr>
+<tr class="separator:a501289bb6edfb58b0dbd86f2ad461054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a316fbcad9c127d79b4919a493aea84d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__handler_8h.html#a316fbcad9c127d79b4919a493aea84d0">write_file</a> (std::string program_name, std::string &amp;data, std::string &amp;file_name, bool binary)</td></tr>
-<tr class="memdesc:a316fbcad9c127d79b4919a493aea84d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function opens a file, writes results into it.  <br /></td></tr>
+<tr class="memdesc:a316fbcad9c127d79b4919a493aea84d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writed data to the provided file.  <br /></td></tr>
 <tr class="separator:a316fbcad9c127d79b4919a493aea84d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a354f5e3cefb18e20e7f7b2fa9e3f0aa6" name="a354f5e3cefb18e20e7f7b2fa9e3f0aa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a354f5e3cefb18e20e7f7b2fa9e3f0aa6">&#9670;&#160;</a></span>read_file()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines functions for interaction with the filesystem. </p>
+<dl class="section author"><dt>Author</dt><dd>Michał Czyż </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a501289bb6edfb58b0dbd86f2ad461054" name="a501289bb6edfb58b0dbd86f2ad461054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a501289bb6edfb58b0dbd86f2ad461054">&#9670;&#160;</a></span>read_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,7 +117,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>binary</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -121,17 +133,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function opens a file, reads its contents and stores it inside data variable. </p>
+<p>Reads data from the provided file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">program_name</td><td></td></tr>
-    <tr><td class="paramname">data</td><td></td></tr>
-    <tr><td class="paramname">file_name</td><td></td></tr>
+    <tr><td class="paramname">program_name</td><td>A string containing the program_name which in case of an error is passed down to the error_handler. </td></tr>
+    <tr><td class="paramname">data</td><td>A reference to a string that will hold the data read from the file. </td></tr>
+    <tr><td class="paramname">file_name</td><td>A reference to a string that holds the file name of a desired file. </td></tr>
+    <tr><td class="paramname">binary</td><td>A method in which the function should read the file (true for binary or false for normal filestream). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation completed successfully, false if it failed. </dd></dl>
 
 </div>
 </div>
@@ -173,17 +185,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function opens a file, writes results into it. </p>
+<p>Writed data to the provided file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">program_name</td><td></td></tr>
-    <tr><td class="paramname">data</td><td></td></tr>
-    <tr><td class="paramname">file_name</td><td></td></tr>
+    <tr><td class="paramname">program_name</td><td>A string containing the program_name which in case of an error is passed down to the error_handler. </td></tr>
+    <tr><td class="paramname">data</td><td>A reference to a string that holds the data. </td></tr>
+    <tr><td class="paramname">file_name</td><td>A reference to a string that holds the file name of a desired file. </td></tr>
+    <tr><td class="paramname">binary</td><td>A method in which the function should write into the file (true for binary or false for normal filestream). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation completed successfully, false if it failed. </dd></dl>
 
 </div>
 </div>

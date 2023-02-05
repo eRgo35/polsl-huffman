@@ -2,7 +2,7 @@
 \label{structhuffman__node}\index{huffman\_node@{huffman\_node}}
 
 
-Huffman node structure. It holds information about the letter, its frequency and the left and right child.  
+huffman node structure used later to create a tree of frequencies.  
 
 
 
@@ -12,22 +12,40 @@ Huffman node structure. It holds information about the letter, its frequency and
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structhuffman__node_a3d02c1015f825a6678418aaf4e1ca9b1}\label{structhuffman__node_a3d02c1015f825a6678418aaf4e1ca9b1}} 
-char {\bfseries symbol}
+char \mbox{\hyperlink{structhuffman__node_a3d02c1015f825a6678418aaf4e1ca9b1}{symbol}}
 \item 
-\mbox{\Hypertarget{structhuffman__node_ad855dabb46357eec6f3ff0a15a069fa2}\label{structhuffman__node_ad855dabb46357eec6f3ff0a15a069fa2}} 
-unsigned int {\bfseries frequency}
+unsigned int \mbox{\hyperlink{structhuffman__node_ad855dabb46357eec6f3ff0a15a069fa2}{frequency}}
 \item 
 \mbox{\Hypertarget{structhuffman__node_a2d7f921a5ace2ff8f5424325f65e7622}\label{structhuffman__node_a2d7f921a5ace2ff8f5424325f65e7622}} 
 \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$ {\bfseries left}
 \item 
-\mbox{\Hypertarget{structhuffman__node_aee102738688d5a78fa6b1778abd3fca7}\label{structhuffman__node_aee102738688d5a78fa6b1778abd3fca7}} 
-\mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$ {\bfseries right}
+\mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$ \mbox{\hyperlink{structhuffman__node_aee102738688d5a78fa6b1778abd3fca7}{right}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Huffman node structure. It holds information about the letter, its frequency and the left and right child. 
+huffman node structure used later to create a tree of frequencies. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structhuffman__node_ad855dabb46357eec6f3ff0a15a069fa2}\label{structhuffman__node_ad855dabb46357eec6f3ff0a15a069fa2}} 
+\index{huffman\_node@{huffman\_node}!frequency@{frequency}}
+\index{frequency@{frequency}!huffman\_node@{huffman\_node}}
+\doxysubsubsection{\texorpdfstring{frequency}{frequency}}
+{\footnotesize\ttfamily unsigned int huffman\+\_\+node\+::frequency}
+
+The frequency of that letter it has been apearing in data \mbox{\Hypertarget{structhuffman__node_aee102738688d5a78fa6b1778abd3fca7}\label{structhuffman__node_aee102738688d5a78fa6b1778abd3fca7}} 
+\index{huffman\_node@{huffman\_node}!right@{right}}
+\index{right@{right}!huffman\_node@{huffman\_node}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhuffman__node}{huffman\+\_\+node}} $\ast$ huffman\+\_\+node\+::right}
+
+Pointers to the left (1) and right (0) child of a node. \mbox{\Hypertarget{structhuffman__node_a3d02c1015f825a6678418aaf4e1ca9b1}\label{structhuffman__node_a3d02c1015f825a6678418aaf4e1ca9b1}} 
+\index{huffman\_node@{huffman\_node}!symbol@{symbol}}
+\index{symbol@{symbol}!huffman\_node@{huffman\_node}}
+\doxysubsubsection{\texorpdfstring{symbol}{symbol}}
+{\footnotesize\ttfamily char huffman\+\_\+node\+::symbol}
+
+The symbol, letter that\textquotesingle{}s stored in a node, later it\textquotesingle{}s just a null character 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

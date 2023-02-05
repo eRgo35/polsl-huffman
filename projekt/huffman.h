@@ -54,12 +54,12 @@ std::map<std::string, char> rebuild_tree(std::string &dictionary);
 void clear_tree(huffman_node *node);
 
 /// @brief Escapes difficult character that might break something later
-/// @param character A char that holds a normal character to escape i.e '\n'.
+/// @param character A char that holds a normal character to escape i.e '\\n'.
 /// @return Returns an escaped version of a character.
 std::string escape_char(char character);
 
 /// @brief Unescapes characters and prints them in a normal form.
-/// @param character A string holding an encoded character to escape i.e '\n'.
+/// @param character A string holding an encoded character to escape i.e '\\n'.
 /// @return Returns a raw, unescaped character.
 char unescape_char(std::string character);
 

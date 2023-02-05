@@ -1,0 +1,86 @@
+\hypertarget{file__handler_8cpp}{}\doxysection{file\+\_\+handler.\+cpp File Reference}
+\label{file__handler_8cpp}\index{file\_handler.cpp@{file\_handler.cpp}}
+
+
+Implements functions for interaction with the filesystem defined in \mbox{\hyperlink{file__handler_8h}{file\+\_\+handler.\+h}}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}file\+\_\+handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}error\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{file__handler_8cpp_a501289bb6edfb58b0dbd86f2ad461054}{read\+\_\+file}} (std\+::string program\+\_\+name, std\+::string \&data, std\+::string \&file\+\_\+name, bool binary)
+\begin{DoxyCompactList}\small\item\em Reads data from the provided file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{file__handler_8cpp_a316fbcad9c127d79b4919a493aea84d0}{write\+\_\+file}} (std\+::string program\+\_\+name, std\+::string \&data, std\+::string \&file\+\_\+name, bool binary)
+\begin{DoxyCompactList}\small\item\em Writed data to the provided file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{file__handler_8cpp_aad75ea9e69afbd349b8530e271af6c5a}\label{file__handler_8cpp_aad75ea9e69afbd349b8530e271af6c5a}} 
+const int {\bfseries chunk\+\_\+size} = 8
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements functions for interaction with the filesystem defined in \mbox{\hyperlink{file__handler_8h}{file\+\_\+handler.\+h}}. 
+
+\begin{DoxyAuthor}{Author}
+Michał Czyż 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{file__handler_8cpp_a501289bb6edfb58b0dbd86f2ad461054}\label{file__handler_8cpp_a501289bb6edfb58b0dbd86f2ad461054}} 
+\index{file\_handler.cpp@{file\_handler.cpp}!read\_file@{read\_file}}
+\index{read\_file@{read\_file}!file\_handler.cpp@{file\_handler.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_file()}{read\_file()}}
+{\footnotesize\ttfamily bool read\+\_\+file (\begin{DoxyParamCaption}\item[{std\+::string}]{program\+\_\+name,  }\item[{std\+::string \&}]{data,  }\item[{std\+::string \&}]{file\+\_\+name,  }\item[{bool}]{binary }\end{DoxyParamCaption})}
+
+
+
+Reads data from the provided file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program\+\_\+name} & A string containing the program\+\_\+name which in case of an error is passed down to the error\+\_\+handler. \\
+\hline
+{\em data} & A reference to a string that will hold the data read from the file. \\
+\hline
+{\em file\+\_\+name} & A reference to a string that holds the file name of a desired file. \\
+\hline
+{\em binary} & A method in which the function should read the file (true for binary or false for normal filestream). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if operation completed successfully, false if it failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{file__handler_8cpp_a316fbcad9c127d79b4919a493aea84d0}\label{file__handler_8cpp_a316fbcad9c127d79b4919a493aea84d0}} 
+\index{file\_handler.cpp@{file\_handler.cpp}!write\_file@{write\_file}}
+\index{write\_file@{write\_file}!file\_handler.cpp@{file\_handler.cpp}}
+\doxysubsubsection{\texorpdfstring{write\_file()}{write\_file()}}
+{\footnotesize\ttfamily bool write\+\_\+file (\begin{DoxyParamCaption}\item[{std\+::string}]{program\+\_\+name,  }\item[{std\+::string \&}]{data,  }\item[{std\+::string \&}]{file\+\_\+name,  }\item[{bool}]{binary }\end{DoxyParamCaption})}
+
+
+
+Writed data to the provided file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program\+\_\+name} & A string containing the program\+\_\+name which in case of an error is passed down to the error\+\_\+handler. \\
+\hline
+{\em data} & A reference to a string that holds the data. \\
+\hline
+{\em file\+\_\+name} & A reference to a string that holds the file name of a desired file. \\
+\hline
+{\em binary} & A method in which the function should write into the file (true for binary or false for normal filestream). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if operation completed successfully, false if it failed. 
+\end{DoxyReturn}

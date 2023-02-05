@@ -1,5 +1,10 @@
 \hypertarget{args__handler_8h}{}\doxysection{args\+\_\+handler.\+h File Reference}
 \label{args__handler_8h}\index{args\_handler.h@{args\_handler.h}}
+
+
+Defines functions needed for parameters recognition and error handling.  
+
+
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
@@ -8,12 +13,19 @@
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{args__handler_8h_a036291e4c0866c96a1c5c82b9f354bfc}{check\+\_\+arg}} (std\+::string \&value, std\+::string arg)
-\begin{DoxyCompactList}\small\item\em Function checks if the specified argument exists and is valid. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{args__handler_8h_a0ce0148467a94642383660a6c992a681}\label{args__handler_8h_a0ce0148467a94642383660a6c992a681}} 
-bool {\bfseries push\+\_\+into\+\_\+error\+\_\+buffer} (std\+::vector$<$ std\+::string $>$ \&target, std\+::string \&error)
-\item 
+\begin{DoxyCompactList}\small\item\em Checks if parameters exist. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{args__handler_8h_a0ce0148467a94642383660a6c992a681}{push\+\_\+into\+\_\+error\+\_\+buffer}} (std\+::vector$<$ std\+::string $>$ \&target, std\+::string \&error)
+\begin{DoxyCompactList}\small\item\em Pushes errors into an error buffer so if more errors occure in one go the program will list them line-\/by-\/line. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{args__handler_8h_abcb1035a3d1006de2a946bd64def646f}{arguments\+\_\+handler}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, std\+::string \&input, std\+::string \&output, std\+::string \&mode, std\+::string \&dictionary)
-\begin{DoxyCompactList}\small\item\em Function handles all incoming arguments from argv array and sets all necessary options and paths into input, output, mode and dictionary variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handles the arguments passed to the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines functions needed for parameters recognition and error handling. 
+
+\begin{DoxyAuthor}{Author}
+Michał Czyż 
+\end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
@@ -25,26 +37,25 @@ bool \mbox{\hyperlink{args__handler_8h_abcb1035a3d1006de2a946bd64def646f}{argume
 
 
 
-Function handles all incoming arguments from argv array and sets all necessary options and paths into input, output, mode and dictionary variables. 
+Handles the arguments passed to the program. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em argc} & \\
+{\em argc} & The number of arguments passed to the program. \\
 \hline
-{\em argv} & \\
+{\em argv} & An array of pointers to the arguments passed to the program. \\
 \hline
-{\em input} & \\
+{\em input} & A reference to a string that will contain the file name of the input. \\
 \hline
-{\em output} & \\
+{\em output} & A reference to a string that will contain the file name of the output. \\
 \hline
-{\em mode} & \\
+{\em mode} & A reference to a string that will contain program mode (compression/decompression). \\
 \hline
-{\em dictionary} & \\
+{\em dictionary} & A reference to a string that will contain the file name of the dictionary file. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-~\newline
- 
+Will return true if the arguemtns were successfully handled. Otherwise, it will return false. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{args__handler_8h_a036291e4c0866c96a1c5c82b9f354bfc}\label{args__handler_8h_a036291e4c0866c96a1c5c82b9f354bfc}} 
 \index{args\_handler.h@{args\_handler.h}!check\_arg@{check\_arg}}
@@ -54,16 +65,35 @@ Function handles all incoming arguments from argv array and sets all necessary o
 
 
 
-Function checks if the specified argument exists and is valid. 
+Checks if parameters exist. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em value} & \\
+{\em value} & Value of an arguement. \\
 \hline
-{\em arg} & \\
+{\em arg} & Passed argument. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-~\newline
- 
+Returns false if there is a problem i.\+e. arg is empty or there is no dash. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{args__handler_8h_a0ce0148467a94642383660a6c992a681}\label{args__handler_8h_a0ce0148467a94642383660a6c992a681}} 
+\index{args\_handler.h@{args\_handler.h}!push\_into\_error\_buffer@{push\_into\_error\_buffer}}
+\index{push\_into\_error\_buffer@{push\_into\_error\_buffer}!args\_handler.h@{args\_handler.h}}
+\doxysubsubsection{\texorpdfstring{push\_into\_error\_buffer()}{push\_into\_error\_buffer()}}
+{\footnotesize\ttfamily bool push\+\_\+into\+\_\+error\+\_\+buffer (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{target,  }\item[{std\+::string \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Pushes errors into an error buffer so if more errors occure in one go the program will list them line-\/by-\/line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & A reference to the target vector of string holding all errors. \\
+\hline
+{\em error} & A reference to a string holding an error message. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Will always return false to signal that an error occured. 
 \end{DoxyReturn}

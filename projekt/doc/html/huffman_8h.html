@@ -75,6 +75,9 @@ $(function() {
   <div class="headertitle"><div class="title">huffman.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines core functions of the program.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -84,28 +87,40 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhuffman__node.html">huffman_node</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Huffman node structure. It holds information about the letter, its frequency and the left and right child.  <a href="structhuffman__node.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">huffman node structure used later to create a tree of frequencies.  <a href="structhuffman__node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a727b5b5077d1d19cf455cbbb8856f0ca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#a727b5b5077d1d19cf455cbbb8856f0ca">is_leaf</a> (<a class="el" href="structhuffman__node.html">huffman_node</a> *node)</td></tr>
-<tr class="memdesc:a727b5b5077d1d19cf455cbbb8856f0ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the provided <a class="el" href="structhuffman__node.html" title="Huffman node structure. It holds information about the letter, its frequency and the left and right c...">huffman_node</a> is a leaf: the node has no more children.  <br /></td></tr>
+<tr class="memdesc:a727b5b5077d1d19cf455cbbb8856f0ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the provided node has no children. It it the leaf of a tree.  <br /></td></tr>
 <tr class="separator:a727b5b5077d1d19cf455cbbb8856f0ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf1005ac1b06a9ff34376e788b536f20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#aaf1005ac1b06a9ff34376e788b536f20">compress</a> (<a class="el" href="structhuffman__node.html">huffman_node</a> *node, std::string data, std::map&lt; char, std::string &gt; &amp;frequency)</td></tr>
-<tr class="memdesc:aaf1005ac1b06a9ff34376e788b536f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compress contents of a provided <a class="el" href="structhuffman__node.html" title="Huffman node structure. It holds information about the letter, its frequency and the left and right c...">huffman_node</a> into a string of ones and zeroes.  <br /></td></tr>
+<tr class="memdesc:aaf1005ac1b06a9ff34376e788b536f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compresses data recursively to a binary stream.  <br /></td></tr>
 <tr class="separator:aaf1005ac1b06a9ff34376e788b536f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac52d102bf29a5f8149b8242df0c59cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#ac52d102bf29a5f8149b8242df0c59cd8">decompress</a> (<a class="el" href="structhuffman__node.html">huffman_node</a> *node, std::string &amp;result)</td></tr>
-<tr class="memdesc:ac52d102bf29a5f8149b8242df0c59cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompresses contents of a provided <a class="el" href="structhuffman__node.html" title="Huffman node structure. It holds information about the letter, its frequency and the left and right c...">huffman_node</a> into an original string.  <br /></td></tr>
-<tr class="separator:ac52d102bf29a5f8149b8242df0c59cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9535bcb3c4a88d8db36e8f3c951ea6f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#a9535bcb3c4a88d8db36e8f3c951ea6f0">decompress</a> (std::map&lt; std::string, char &gt; &amp;frequency, std::string &amp;data, std::string &amp;result)</td></tr>
+<tr class="memdesc:a9535bcb3c4a88d8db36e8f3c951ea6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompresses binary stream back to the normal format.  <br /></td></tr>
+<tr class="separator:a9535bcb3c4a88d8db36e8f3c951ea6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbdcbac56863d6962dc40c9e9f112f0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhuffman__node.html">huffman_node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#abbdcbac56863d6962dc40c9e9f112f0f">create_tree</a> (std::map&lt; char, int &gt; &amp;frequency)</td></tr>
-<tr class="memdesc:abbdcbac56863d6962dc40c9e9f112f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a huffman tree structure.  <br /></td></tr>
+<tr class="memdesc:abbdcbac56863d6962dc40c9e9f112f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a huffman binary tree out of a map of frequencies.  <br /></td></tr>
 <tr class="separator:abbdcbac56863d6962dc40c9e9f112f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0070a5b180bff5881abe4c818e02bbdc"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#a0070a5b180bff5881abe4c818e02bbdc">rebuild_tree</a> (std::string &amp;dictionary)</td></tr>
+<tr class="memdesc:a0070a5b180bff5881abe4c818e02bbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuilds an inverted (easier to process later) frequency map from a string.  <br /></td></tr>
+<tr class="separator:a0070a5b180bff5881abe4c818e02bbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd8012c4168235bafffd1f3f3a8be535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#afd8012c4168235bafffd1f3f3a8be535">clear_tree</a> (<a class="el" href="structhuffman__node.html">huffman_node</a> *node)</td></tr>
-<tr class="memdesc:afd8012c4168235bafffd1f3f3a8be535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuilds huffman tree structure from a file.  <br /></td></tr>
+<tr class="memdesc:afd8012c4168235bafffd1f3f3a8be535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a heap of a huffman tree so the program doesn't leak any data.  <br /></td></tr>
 <tr class="separator:afd8012c4168235bafffd1f3f3a8be535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d69a045da94f38df53b96ff00eb4b3b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#a0d69a045da94f38df53b96ff00eb4b3b">escape_char</a> (char character)</td></tr>
+<tr class="memdesc:a0d69a045da94f38df53b96ff00eb4b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escapes difficult character that might break something later.  <br /></td></tr>
+<tr class="separator:a0d69a045da94f38df53b96ff00eb4b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cb77ebb814822df524737ff8e40a83a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman_8h.html#a3cb77ebb814822df524737ff8e40a83a">unescape_char</a> (std::string character)</td></tr>
+<tr class="memdesc:a3cb77ebb814822df524737ff8e40a83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unescapes characters and prints them in a normal form.  <br /></td></tr>
+<tr class="separator:a3cb77ebb814822df524737ff8e40a83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines core functions of the program. </p>
+<dl class="section author"><dt>Author</dt><dd>Michał Czyż </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="afd8012c4168235bafffd1f3f3a8be535" name="afd8012c4168235bafffd1f3f3a8be535"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd8012c4168235bafffd1f3f3a8be535">&#9670;&#160;</a></span>clear_tree()</h2>
 
@@ -122,15 +137,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Rebuilds huffman tree structure from a file. </p>
+<p>Clears a heap of a huffman tree so the program doesn't leak any data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td></td></tr>
+    <tr><td class="paramname">node</td><td>A pointer to a node that has to be cleared. By default it should be the entire tree. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
 
 </div>
 </div>
@@ -166,13 +179,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compress contents of a provided <a class="el" href="structhuffman__node.html" title="Huffman node structure. It holds information about the letter, its frequency and the left and right c...">huffman_node</a> into a string of ones and zeroes. </p>
+<p>Compresses data recursively to a binary stream. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tree</td><td></td></tr>
-    <tr><td class="paramname">data</td><td></td></tr>
-    <tr><td class="paramname">result</td><td><br  />
- </td></tr>
+    <tr><td class="paramname">node</td><td>A pointer to the huffman tree root. </td></tr>
+    <tr><td class="paramname">data</td><td>A string of data to be compressed. </td></tr>
+    <tr><td class="paramname">frequency</td><td>A reference to a frequency map. </td></tr>
   </table>
   </dd>
 </dl>
@@ -195,19 +207,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a huffman tree structure. </p>
+<p>Creates a huffman binary tree out of a map of frequencies. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td></td></tr>
+    <tr><td class="paramname">frequency</td><td>A reference to a map of frequencies. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a pointer to a huffman binary tree. </dd></dl>
 
 </div>
 </div>
-<a id="ac52d102bf29a5f8149b8242df0c59cd8" name="ac52d102bf29a5f8149b8242df0c59cd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac52d102bf29a5f8149b8242df0c59cd8">&#9670;&#160;</a></span>decompress()</h2>
+<a id="a9535bcb3c4a88d8db36e8f3c951ea6f0" name="a9535bcb3c4a88d8db36e8f3c951ea6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9535bcb3c4a88d8db36e8f3c951ea6f0">&#9670;&#160;</a></span>decompress()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,8 +227,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void decompress </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structhuffman__node.html">huffman_node</a> *&#160;</td>
-          <td class="paramname"><em>node</em>, </td>
+          <td class="paramtype">std::map&lt; std::string, char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>frequency</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -232,16 +250,42 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Decompresses contents of a provided <a class="el" href="structhuffman__node.html" title="Huffman node structure. It holds information about the letter, its frequency and the left and right c...">huffman_node</a> into an original string. </p>
+<p>Decompresses binary stream back to the normal format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tree</td><td></td></tr>
-    <tr><td class="paramname">i</td><td></td></tr>
-    <tr><td class="paramname">res</td><td><br  />
- </td></tr>
+    <tr><td class="paramname">frequency</td><td>A reference to an inverted frequency map. </td></tr>
+    <tr><td class="paramname">data</td><td>A reference to the string of encoded data. </td></tr>
+    <tr><td class="paramname">result</td><td>A reference to the string that will contain decomressed data. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a0d69a045da94f38df53b96ff00eb4b3b" name="a0d69a045da94f38df53b96ff00eb4b3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d69a045da94f38df53b96ff00eb4b3b">&#9670;&#160;</a></span>escape_char()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string escape_char </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escapes difficult character that might break something later. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>A char that holds a normal character to escape i.e '\n'. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns an escaped version of a character. </dd></dl>
 
 </div>
 </div>
@@ -261,15 +305,68 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>check if the provided <a class="el" href="structhuffman__node.html" title="Huffman node structure. It holds information about the letter, its frequency and the left and right c...">huffman_node</a> is a leaf: the node has no more children. </p>
+<p>Checks if the provided node has no children. It it the leaf of a tree. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">node</td><td>A pointer to the node that has to be checked. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the node is a leaf node. </dd></dl>
+
+</div>
+</div>
+<a id="a0070a5b180bff5881abe4c818e02bbdc" name="a0070a5b180bff5881abe4c818e02bbdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0070a5b180bff5881abe4c818e02bbdc">&#9670;&#160;</a></span>rebuild_tree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, char &gt; rebuild_tree </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>dictionary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rebuilds an inverted (easier to process later) frequency map from a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dictionary</td><td>A reference to a string that holds a map. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns an inverted frequency map. </dd></dl>
+
+</div>
+</div>
+<a id="a3cb77ebb814822df524737ff8e40a83a" name="a3cb77ebb814822df524737ff8e40a83a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cb77ebb814822df524737ff8e40a83a">&#9670;&#160;</a></span>unescape_char()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char unescape_char </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unescapes characters and prints them in a normal form. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>A string holding an encoded character to escape i.e '\n'. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a raw, unescaped character. </dd></dl>
 
 </div>
 </div>

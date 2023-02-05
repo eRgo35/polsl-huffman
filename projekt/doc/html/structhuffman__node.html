@@ -76,29 +76,72 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Huffman node structure. It holds information about the letter, its frequency and the left and right child.  
+<p>huffman node structure used later to create a tree of frequencies.  
  <a href="structhuffman__node.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="huffman_8h_source.html">huffman.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3d02c1015f825a6678418aaf4e1ca9b1"><td class="memItemLeft" align="right" valign="top"><a id="a3d02c1015f825a6678418aaf4e1ca9b1" name="a3d02c1015f825a6678418aaf4e1ca9b1"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>symbol</b></td></tr>
+<tr class="memitem:a3d02c1015f825a6678418aaf4e1ca9b1"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhuffman__node.html#a3d02c1015f825a6678418aaf4e1ca9b1">symbol</a></td></tr>
 <tr class="separator:a3d02c1015f825a6678418aaf4e1ca9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad855dabb46357eec6f3ff0a15a069fa2"><td class="memItemLeft" align="right" valign="top"><a id="ad855dabb46357eec6f3ff0a15a069fa2" name="ad855dabb46357eec6f3ff0a15a069fa2"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>frequency</b></td></tr>
+<tr class="memitem:ad855dabb46357eec6f3ff0a15a069fa2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhuffman__node.html#ad855dabb46357eec6f3ff0a15a069fa2">frequency</a></td></tr>
 <tr class="separator:ad855dabb46357eec6f3ff0a15a069fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d7f921a5ace2ff8f5424325f65e7622"><td class="memItemLeft" align="right" valign="top"><a id="a2d7f921a5ace2ff8f5424325f65e7622" name="a2d7f921a5ace2ff8f5424325f65e7622"></a>
 <a class="el" href="structhuffman__node.html">huffman_node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>left</b></td></tr>
 <tr class="separator:a2d7f921a5ace2ff8f5424325f65e7622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee102738688d5a78fa6b1778abd3fca7"><td class="memItemLeft" align="right" valign="top"><a id="aee102738688d5a78fa6b1778abd3fca7" name="aee102738688d5a78fa6b1778abd3fca7"></a>
-<a class="el" href="structhuffman__node.html">huffman_node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>right</b></td></tr>
+<tr class="memitem:aee102738688d5a78fa6b1778abd3fca7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhuffman__node.html">huffman_node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhuffman__node.html#aee102738688d5a78fa6b1778abd3fca7">right</a></td></tr>
 <tr class="separator:aee102738688d5a78fa6b1778abd3fca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Huffman node structure. It holds information about the letter, its frequency and the left and right child. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p>huffman node structure used later to create a tree of frequencies. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad855dabb46357eec6f3ff0a15a069fa2" name="ad855dabb46357eec6f3ff0a15a069fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad855dabb46357eec6f3ff0a15a069fa2">&#9670;&#160;</a></span>frequency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int huffman_node::frequency</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The frequency of that letter it has been apearing in data </p>
+
+</div>
+</div>
+<a id="aee102738688d5a78fa6b1778abd3fca7" name="aee102738688d5a78fa6b1778abd3fca7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee102738688d5a78fa6b1778abd3fca7">&#9670;&#160;</a></span>right</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhuffman__node.html">huffman_node</a> * huffman_node::right</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointers to the left (1) and right (0) child of a node. </p>
+
+</div>
+</div>
+<a id="a3d02c1015f825a6678418aaf4e1ca9b1" name="a3d02c1015f825a6678418aaf4e1ca9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d02c1015f825a6678418aaf4e1ca9b1">&#9670;&#160;</a></span>symbol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char huffman_node::symbol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The symbol, letter that's stored in a node, later it's just a null character </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="huffman_8h_source.html">huffman.h</a></li>
 </ul>
 </div><!-- contents -->

@@ -1,11 +1,24 @@
 \hypertarget{error__handler_8h}{}\doxysection{error\+\_\+handler.\+h File Reference}
 \label{error__handler_8h}\index{error\_handler.h@{error\_handler.h}}
+
+
+Simple header that holds the general error handler for the program.  
+
+
 {\ttfamily \#include $<$iostream$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{error__handler_8h_aa17320685b5884eebf46e0234595bbfa}{error\+\_\+handler}} (std\+::string program\+\_\+name, std\+::string message)
-\begin{DoxyCompactList}\small\item\em Function handles error and quick help outputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Generates an error output in the console and help, with an instruction of how to use a program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple header that holds the general error handler for the program. 
+
+\begin{DoxyAuthor}{Author}
+Michał Czyż 
+\end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
@@ -17,16 +30,15 @@ bool \mbox{\hyperlink{error__handler_8h_aa17320685b5884eebf46e0234595bbfa}{error
 
 
 
-Function handles error and quick help outputs. 
+Generates an error output in the console and help, with an instruction of how to use a program. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em program\+\_\+name} & \\
+{\em program\+\_\+name} & A string that holds a name of a program to printout. \\
 \hline
-{\em message} & \\
+{\em message} & A string containing an error message to printout. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-~\newline
- 
+Always returns false. 
 \end{DoxyReturn}
