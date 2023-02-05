@@ -138,6 +138,16 @@ std::string escape_char(char character)
 {
   if (character == '\n')
     return "'\\n'";
+  if (character == '\t')
+    return "'\\t'";
+  if (character == '\r')
+    return "'\\r'";
+  if (character == '\f')
+    return "'\\f'";
+  if (character == '\b')
+    return "'\\b'";
+  if (character == '\0')
+    return "'\\0'";
   return std::string(1, character);
 }
 
@@ -145,5 +155,15 @@ char unescape_char(std::string character)
 {
   if (character == "'\\n'")
     return '\n';
+  if (character == "'\\t'")
+    return '\t';
+  if (character == "'\\r'")
+    return '\r';
+  if (character == "'\\f'")
+    return '\f';
+  if (character == "'\\b'")
+    return '\b';
+  if (character == "'\\0'")
+    return '\0';
   return character.c_str()[0];
 }
