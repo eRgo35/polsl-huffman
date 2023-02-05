@@ -1,3 +1,9 @@
+/**
+ * @file error_handler.cpp
+ * @brief Implements functions that are defined in error_handler.h
+ * @author Michał Czyż
+*/
+
 #include <iostream>
 
 #include "error_handler.h"

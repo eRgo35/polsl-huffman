@@ -1,3 +1,9 @@
+/** 
+ * @file args_handler.cpp
+ * @brief Implements functions defined in args_handler.h
+ * @author Michał Czyż
+*/
+
 #include <iostream>
 #include <map>
 #include <vector>
@@ -5,6 +11,7 @@
 #include "args_handler.h"
 #include "error_handler.h"
 
+// error buffer, so the code is cleaner
 std::map<std::string, std::string> error_messages{
     {"not_enough", "Too few arguments.\n"},
     {"input", "-i argument requires <input_file> path.\n"},

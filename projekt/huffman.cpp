@@ -1,3 +1,9 @@
+/**
+ * @file huffman.cpp
+ * @brief Implements functions defined in huffman.h, contains the core functionality of this program.
+ * @author Michał Czyż
+*/
+
 #include <iostream>
 #include <queue>
 #include <map>
@@ -7,11 +13,13 @@
 
 #include "huffman.h"
 
+// custom sorter for the priority queue, so the frequencies get pulled out by the lowest frequency number.
 auto lowest_frequency = [](huffman_node *left, huffman_node *right)
 {
   return left->frequency > right->frequency;
 };
 
+// basic leaf check, if node has no children, it's a leaf node.
 bool is_leaf(huffman_node *node)
 {
   if (node->left == nullptr && node->right == nullptr)
@@ -40,9 +48,11 @@ void decompress(std::map<std::string, char> &frequency, std::string &data, std::
   std::string code;
   for (char c : data)
   {
+    // add charcters as to a string as long as some code get found in a dictionary map
     code += c;
     if (frequency.count(code) > 0)
     {
+      // adds the value of the code into the result and resets itself
       result += frequency[code];
       code = "";
     }
@@ -110,7 +120,6 @@ std::map<std::string, char> rebuild_tree(std::string &dictionary)
   return dictionary_map;
 }
 
-
 void clear_tree(huffman_node *node)
 {
   // check if node exists
@@ -123,6 +132,13 @@ void clear_tree(huffman_node *node)
 
   // remove node from the heap
   delete node;
+}
+
+std::string escape_char(char character)
+{
+  if (character == '\n')
+    return "'\\n'";
+  return std::string(1, character);
 }
 
 char unescape_char(std::string character)
