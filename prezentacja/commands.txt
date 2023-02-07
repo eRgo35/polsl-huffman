@@ -1,0 +1,25 @@
+commands for the presentation:
+
+compression:
+$ ./huffman -i file.txt -o file.huf -t k -s file.lst
+
+decompression:
+$ ./huffman -i file.huf -o file-new.txt -t d -s file.lst
+
+empty file compression:
+$ ./huffman -i empty.txt -o empty.huf -t k -s empty.lst
+
+empty file decompression:
+$ ./huffman -i empty.txt -o empty-new.txt -t d -s empty.txt
+
+large text file compression:
+$ ./huffman -i pantadeusz.txt -o pantadeusz.huf -t k -s pantadeusz.lst
+
+large text file decompression:
+$ ./huffman -i pantadeusz.huf -o pantadeusz-new.txt -t d -s pantadeusz.lst
+
+image compression:
+$ ./huffman -i ss.png -o ss.huf -t k -s ss.lst
+
+image decompression:
+$ ./huffman -i ss.huf -o ss.png -t d -s ss.lst
